@@ -1,6 +1,6 @@
 class Solution:
     def isPalindrome(self, head: Optional[ListNode]) -> bool:
-        list = []
+        list = collections.deque()
         
         if not head:
             return True
@@ -10,7 +10,7 @@ class Solution:
             head = head.next
 
         while len(list) > 1:
-            if list.pop(0) != list.pop():
+            if list.popleft() != list.pop():
                 return False
         
         return True
